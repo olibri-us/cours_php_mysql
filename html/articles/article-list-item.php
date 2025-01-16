@@ -4,6 +4,7 @@
 
 <a href="/articles/view.php?article=<?= $article["id"] ?>">
   <h3 class="title"><?= $article["title"] ?></h3>
+  <a href="/handlers/article/delete.php?article=<?= $article["id"] ?>" class="supp">Supprimer l'article</a>
 </a>
   <div class="minia">
     <img src="<?= $article["img"] ?>" alt="<?= $article["title"] ?>" class="thumbnail">

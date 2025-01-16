@@ -1,8 +1,8 @@
 <?php
 
-include_once("database.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/database.php");
 
-$folder = "./migrations/";
+$folder = "./";
 $files = scandir($folder);
 
 $bdd = connect_server();
