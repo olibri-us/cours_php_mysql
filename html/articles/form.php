@@ -1,5 +1,9 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . "/handlers/article/view.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/handlers/author/list.php");
+
+$authorList = list_authors();
+
 if (!empty($_GET["article"])) {
   $article = view_article($_GET["article"]);
   $action = "/handlers/article/update.php?article=" . $article['id'];
@@ -17,7 +21,13 @@ if (!empty($_GET["article"])) {
   <label for="title"> Titre</label>
   <input type="text" name="title" value="<?= $article['title'] ?? '' ?>" required>
   <label for="author"> Auteur</label>
-  <input type="text" name="author" value="<?= $article['author'] ?? '' ?>" required>
+  <select name="author_id" id="author">
+    <?php foreach ($authorList as $author): ?>
+      <option value="<?= $author['id'] ?>" <?php if ($author['id'] === $article['author_id']) echo ('selected') ?>>
+        <?= $author['name'] ?>
+      </option>
+    <?php endforeach ?>
+  </select>
   <label for="article_img"> Image</label>
   <input type="file" name="article_img" required>
   <label for="content"> Contenu</label>

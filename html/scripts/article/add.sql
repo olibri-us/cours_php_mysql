@@ -1,4 +1,4 @@
 INSERT INTO
-    articles (`title`, `date`, `author`, `img`, `content`)
+    articles (`title`, `date`, `author_id`, `img`, `content`)
 VALUES
-    (:title, :date, :author, :img_url, :content );
+    (:title, :date, :author_id, :img_url, :content );

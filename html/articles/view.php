@@ -6,7 +6,7 @@
 
 <body>
   <?php
-  include_once ($_SERVER['DOCUMENT_ROOT'].'/handlers/article/view.php');
+  include_once($_SERVER['DOCUMENT_ROOT'] . '/handlers/article/view.php');
 
   $id = $_GET["article"];
   $article = view_article($id);
@@ -17,7 +17,7 @@
     <article>
       <h1 class="title"><?= $article["title"] ?></h1>
       <span><time><?= format_sql_date($article["date"]) ?></time></span>
-      <span><?= $article["author"] ?></span>
+      <span><?= $article["author_name"] ?></span>
       <div class="content">
         <img src="<?= $article["img"] ?>" alt="chat" class="image">
         <p class="description"><?= $article["content"] ?></p>

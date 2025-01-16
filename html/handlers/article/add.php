@@ -16,7 +16,7 @@ $request = load_script($bdd, $root . "/scripts/article/add.sql");
 $result = $request->execute([
   'title' => $_POST['title'],
   'date' => date('Y-m-d'),
-  'author' => $_POST['author'],
+  'author_id' => $_POST['author_id'],
   'img_url' => $newFileName,
   'content' => $_POST['content'],
 ]);

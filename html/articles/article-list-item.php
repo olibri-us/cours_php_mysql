@@ -10,7 +10,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php")
 <div class="minia">
   <img src="<?= $article["img"] ?>" alt="<?= $article["title"] ?>" class="thumbnail">
   <div>
-    <p><?= $article["author"] . ", " . format_sql_date($article["date"]) ?></p>
+    <p><?= $article["author_name"] . ", " . format_sql_date($article["date"]) ?></p>
     <p><?= $article['content'] ?></p>
     <?php if (isset($article['comments'])): ?>
       <p><?= "Nombre de commentaires : " . count($article["comments"]) ?></p>

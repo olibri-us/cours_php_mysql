@@ -4,11 +4,11 @@ $root = $_SERVER['DOCUMENT_ROOT'];
 
 include_once("$root/database.php");
 
-function list_articles()
+function list_authors()
 {
   global $root;
   $bdd = connect_server('fake_reddit');
-  $request = load_script($bdd, $root . "/scripts/article/list.sql");
+  $request = load_script($bdd, $root . "/scripts/author/list.sql");
   $request->execute();
 
   return $request->fetchAll(PDO::FETCH_ASSOC);
