@@ -2,15 +2,23 @@
 // Chemin de selection de la db
 $root = $_SERVER['DOCUMENT_ROOT'];
 include_once("$root/database.php");
+include_once("$root/utils.php");
 $bdd = connect_server('fake_reddit');
 
-// delete article from database
-// Chergement du script delete.sql
+// handle image upload
+$newFileName = handle_img_upload('article_img');
+
+// update article from database
+// Chargement du script update.sql
 $request = load_script($bdd, $root . "/scripts/article/update.sql");
 
-//Execution de la request "delete"
+//Execution de la request "update"
 $result = $request->execute([
-    'id' =>  $_GET['article']
+    'id' =>  $_GET['article'],
+    'title' => $_POST['title'],
+    'author' => $_POST['author'],
+    'img_url' => $newFileName,
+    'content' => $_POST['content'],
 ]);
 
 //Redirection ver l'url de l'index
