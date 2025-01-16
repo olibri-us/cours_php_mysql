@@ -1,3 +1,7 @@
+<?php
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php")
+?>
+
 <a href="/articles/view.php?article=<?= $article["id"] ?>">
   <h3 class="title"><?= $article["title"] ?></h3>
 </a>
@@ -11,4 +15,3 @@
       <?php endif; ?>
     </div>
   </div>
-
