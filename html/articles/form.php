@@ -23,7 +23,7 @@ if (!empty($_GET["article"])) {
   <label for="author"> Auteur</label>
   <select name="author_id" id="author">
     <?php foreach ($authorList as $author): ?>
-      <option value="<?= $author['id'] ?>" <?php if ($author['id'] === $article['author_id']) echo ('selected') ?>>
+      <option value="<?= $author['id'] ?>" <?php if (!empty($article) && $author['id'] === $article['author_id']) echo ('selected') ?>>
         <?= $author['name'] ?>
       </option>
     <?php endforeach ?>

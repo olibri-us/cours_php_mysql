@@ -16,7 +16,7 @@ $request = load_script($bdd, $root . "/scripts/article/update.sql");
 $result = $request->execute([
     'id' =>  $_GET['article'],
     'title' => $_POST['title'],
-    'author' => $_POST['author'],
+    'author_id' => $_POST['author_id'],
     'img_url' => $newFileName,
     'content' => $_POST['content'],
 ]);
