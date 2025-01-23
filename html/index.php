@@ -13,6 +13,17 @@
 
   $articles = list_articles();
   ?>
+
+  <a href="/actions/logout.php" style="float : right">
+    <button>Déconnexion</button>
+  </a>
+
+  <aside>
+    <a href="/views/articles/form.php">
+      <button>Ajouter un article</button>
+    </a>
+  </aside>
+
   <section>
     <?php if ($articles) : ?>
       <?php foreach ($articles as $article): ?>
@@ -23,15 +34,7 @@
     <?php else : ?>
       <h3>Oops! Aucun article. :)</h3>
     <?php endif; ?>
-    <aside>
-      <a href="/views/articles/form.php">
-        <button>Ajouter un article</button>
-      </a>
-    </aside>
   </section>
-  <a href="/actions/logout.php">
-    <button>Déconnexion</button>
-  </a>
 </body>
 
 </html>

@@ -14,6 +14,9 @@
 
   ?>
   <section>
+    <a href="/">
+      <button>Retour</button>
+    </a>
     <article>
       <h1 class="title"><?= $article["title"] ?></h1>
       <span><time><?= format_sql_date($article["date"]) ?></time></span>

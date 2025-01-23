@@ -1,14 +1,37 @@
 # Exercices PHP / MySQL
 
-## Créer une branche
+## Git
+
+### Créer une branche
 
 Se positionner sur la branche dont on souhaite partir puis créer la branche
 ```
 git fetch
 git checkout main
 git pull --rebase
-git branch
+git branch *ma_branche*
+git checkout *ma_branche*
 ```
+
+### Publier la branche
+
+```
+git push -u *mabranche*
+```
+
+### Créer un commit
+
+```
+git add .
+git commit -m "message du commit"
+```
+
+### Publie un commit
+
+```
+git push
+```
+
 
 ## Dossiers
 
@@ -27,6 +50,11 @@ Contient les scripts SQL liés utilisés par les `actions`
 ### uploads
 
 Contient les fichiers uploadés par les `actions`
+
+Si on a des problèmes pour écrire des fichiers dans ce dossier :
+```
+chmod 777 html/uploads
+```
 
 ### views
 
