@@ -2,11 +2,11 @@
 include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php")
 ?>
 
-<a href="/articles/view.php?article=<?= $article["id"] ?>">
+<a href="/views/articles/view.php?article=<?= $article["id"] ?>">
   <h3 class="title"><?= $article["title"] ?></h3>
 </a>
-<a href="/handlers/article/delete.php?article=<?= $article["id"] ?>" class="supp">Supprimer l'article</a>
-<a href="/articles/form.php?article=<?= $article["id"] ?>" class="update">Modifier l'article</a>
+<a href="/actions/article/delete.php?article=<?= $article["id"] ?>" class="supp">Supprimer l'article</a>
+<a href="/views/articles/form.php?article=<?= $article["id"] ?>" class="update">Modifier l'article</a>
 <div class="minia">
   <img src="<?= $article["img"] ?>" alt="<?= $article["title"] ?>" class="thumbnail">
   <div>

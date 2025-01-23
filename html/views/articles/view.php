@@ -1,12 +1,12 @@
 <html lang="fr">
 
 <head>
-  <link href="../style.css" rel="stylesheet" />
+  <link href="../../style.css" rel="stylesheet" />
 </head>
 
 <body>
   <?php
-  include_once($_SERVER['DOCUMENT_ROOT'] . '/handlers/article/view.php');
+  include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/article/view.php');
 
   $id = $_GET["article"];
   $article = view_article($id);

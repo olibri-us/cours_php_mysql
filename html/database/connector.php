@@ -1,5 +1,7 @@
 <?php
 
+$root = $_SERVER['DOCUMENT_ROOT'];
+
 function connect_server($dbname = '')
 {
   $dsn = "mysql:host=db;charset=utf8";
@@ -10,9 +12,9 @@ function connect_server($dbname = '')
   return new PDO($dsn, "root", "password");
 }
 
-
-function load_script($bdd, $filepath)
+function load_script($bdd, $script)
 {
-  $script = file_get_contents($filepath);
+  global $root;
+  $script = file_get_contents("$root/scripts/$script");
   return $bdd->prepare($script);
 }

@@ -9,7 +9,7 @@ function handle_img_upload($uploadedFileName)
 {
   $filePath = $_FILES[$uploadedFileName]['tmp_name'];
   $fileName = $_FILES[$uploadedFileName]['name'];
-  $newFileName = "/images/" . $fileName;
+  $newFileName = "/uploads/" . $fileName;
   if (isset($filePath)) {
     move_uploaded_file($filePath, $_SERVER['DOCUMENT_ROOT'] . $newFileName);
   }

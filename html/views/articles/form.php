@@ -1,14 +1,14 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . "/handlers/article/view.php");
-include_once($_SERVER['DOCUMENT_ROOT'] . "/handlers/author/list.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/article/view.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/author/list.php");
 
 $authorList = list_authors();
 
 if (!empty($_GET["article"])) {
   $article = view_article($_GET["article"]);
-  $action = "/handlers/article/update.php?article=" . $article['id'];
+  $action = "/actions/article/update.php?article=" . $article['id'];
 } else {
-  $action = "/handlers/article/add.php";
+  $action = "/actions/article/add.php";
 }
 ?>
 

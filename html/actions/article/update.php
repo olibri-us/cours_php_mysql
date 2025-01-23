@@ -1,7 +1,7 @@
 <?php
 // Chemin de selection de la db
 $root = $_SERVER['DOCUMENT_ROOT'];
-include_once("$root/database.php");
+include_once("$root/database/connector.php");
 include_once("$root/utils.php");
 $bdd = connect_server('fake_reddit');
 
@@ -10,7 +10,7 @@ $newFileName = handle_img_upload('article_img');
 
 // update article from database
 // Chargement du script update.sql
-$request = load_script($bdd, $root . "/scripts/article/update.sql");
+$request = load_script($bdd,  "article/update.sql");
 
 //Execution de la request "update"
 $result = $request->execute([
