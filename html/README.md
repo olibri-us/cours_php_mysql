@@ -1,5 +1,15 @@
 # Exercices PHP / MySQL
 
+## Créer une branche
+
+Se positionner sur la branche dont on souhaite partir puis créer la branche
+```
+git fetch
+git checkout main
+git pull --rebase
+git branch
+```
+
 ## Dossiers
 
 ### actions
