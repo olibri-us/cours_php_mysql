@@ -1,8 +1,10 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/article/view.php");
-include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/author/list.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php");
 
-$authorList = list_authors();
+check_connexion();
+// include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/author/list.php");
+// $authorList = list_authors();
 
 if (!empty($_GET["article"])) {
   $article = view_article($_GET["article"]);
@@ -20,14 +22,15 @@ if (!empty($_GET["article"])) {
   <h3>Ajouter un article </h3>
   <label for="title"> Titre</label>
   <input type="text" name="title" value="<?= $article['title'] ?? '' ?>" required>
-  <label for="author"> Auteur</label>
-  <select name="author_id" id="author">
+  
+  <!-- <label for="author"> Auteur</label> -->
+  <!-- <select name="author_id" id="author">
     <?php foreach ($authorList as $author): ?>
       <option value="<?= $author['id'] ?>" <?php if (!empty($article) && $author['id'] === $article['author_id']) echo ('selected') ?>>
         <?= $author['name'] ?>
       </option>
     <?php endforeach ?>
-  </select>
+  </select> -->
   <label for="article_img"> Image</label>
   <input type="file" name="article_img" required>
   <label for="content"> Contenu</label>

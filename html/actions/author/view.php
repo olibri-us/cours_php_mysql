@@ -1,15 +1,12 @@
 <?php
 
 $root = $_SERVER['DOCUMENT_ROOT'];
-
 include_once("$root/database/connector.php");
-include_once("$root/utils.php");
 
-function view_article($id)
-{
+function load_author_by_name($name) {
   $bdd = connect_server('fake_reddit');
-  $request = load_script($bdd,  "article/view.sql");
-  $request->execute(['id' => $id]);
+  $request = load_script($bdd,  "author/view.sql");
+  $request->execute(['name' => $name]);
 
   return $request->fetch(PDO::FETCH_ASSOC);
 }

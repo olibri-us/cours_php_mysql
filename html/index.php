@@ -6,22 +6,11 @@
 
 <body>
   <?php
-  function get_connected_author_id()
-  {
-    session_start();
-    $session_author_id = $_SESSION["author_id"] ?? null;
-    if (!$session_author_id) {
-      //Redirection ver l'url de connexion
-      header('Location: /views/connexion.php');
-      die;
-    }
-    return $session_author_id;
-  }
-  $author_id = get_connected_author_id()
-  ?>
-
-  <?php
   include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/article/list.php");
+  include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php");
+  
+  $author = get_connected_author();
+
   $articles = list_articles();
   ?>
   <section>

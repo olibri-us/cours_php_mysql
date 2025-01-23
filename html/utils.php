@@ -15,3 +15,25 @@ function handle_img_upload($uploadedFileName)
   }
   return $newFileName;
 }
+
+function get_connected_author()
+{
+  session_start();
+  $session_author = $_SESSION["author"] ?? null;
+  if (!$session_author) {
+    //Redirection ver l'url de connexion
+    header('Location: /views/connexion.php');
+    die;
+  }
+  return $session_author;
+}
+
+function check_connexion() {
+  session_start();
+  $session_author = $_SESSION["author"] ?? null;
+  if (!$session_author) {
+    //Redirection ver l'url de connexion
+    header('Location: /views/connexion.php');
+    die;
+  }
+}
