@@ -1,7 +1,7 @@
 <?php
-  include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/author/list.php");
-  //Donne la liste d'auteur au client
-  $authorList = list_authors();
+include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/author/list.php");
+//Donne la liste d'auteur au client
+$authorList = list_authors();
 ?>
 
 
@@ -18,3 +18,5 @@
   </select>
   <input type="submit" value="Connexion" />
 </form>
+
+<a href="/views/subscribe.php">Créer un compte</a>

@@ -6,17 +6,18 @@
 
 <body>
   <?php
-    function get_connected_author_id() {
-      session_start();
-      $session_author_id = $_SESSION["author_id"] ?? null;
-      if (!$session_author_id) {
-        //Redirection ver l'url de connexion
-        header('Location: /views/connexion.php');
-        die;
-      }
-      return $session_author_id;
+  function get_connected_author_id()
+  {
+    session_start();
+    $session_author_id = $_SESSION["author_id"] ?? null;
+    if (!$session_author_id) {
+      //Redirection ver l'url de connexion
+      header('Location: /views/connexion.php');
+      die;
     }
-    $author_id = get_connected_author_id()
+    return $session_author_id;
+  }
+  $author_id = get_connected_author_id()
   ?>
 
   <?php
@@ -27,7 +28,7 @@
     <?php if ($articles) : ?>
       <?php foreach ($articles as $article): ?>
         <article>
-          <?php include $_SERVER['DOCUMENT_ROOT'].'/views/articles/article-list-item.php'; ?>
+          <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/articles/article-list-item.php'; ?>
         </article>
       <?php endforeach; ?>
     <?php else : ?>
@@ -39,6 +40,9 @@
       </a>
     </aside>
   </section>
+  <a href="/actions/logout.php">
+    <button>Déconnexion</button>
+  </a>
 </body>
 
 </html>
