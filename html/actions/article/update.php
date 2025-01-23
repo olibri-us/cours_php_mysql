@@ -5,6 +5,8 @@ include_once("$root/database/connector.php");
 include_once("$root/utils.php");
 $bdd = connect_server('fake_reddit');
 
+$author = get_connected_author();
+
 // handle image upload
 $newFileName = handle_img_upload('article_img');
 
@@ -16,7 +18,7 @@ $request = load_script($bdd,  "article/update.sql");
 $result = $request->execute([
     'id' =>  $_GET['article'],
     'title' => $_POST['title'],
-    'author_id' => $_POST['author_id'],
+    'author_id' => $author['id'],
     'img_url' => $newFileName,
     'content' => $_POST['content'],
 ]);
