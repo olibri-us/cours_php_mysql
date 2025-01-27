@@ -6,5 +6,6 @@ CREATE TABLE IF NOT EXISTS articles (
     author_id INT NOT NULL,
     img VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
+    nb_comments INT NOT NULL DEFAULT 0,
     FOREIGN KEY (author_id) REFERENCES authors(id)
 );

@@ -7,12 +7,17 @@
 <body>
   <?php
   include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/article/view.php');
+  include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/comment/list.php');
+  include_once($_SERVER['DOCUMENT_ROOT'] . '/utils.php');
 
-  $id = $_GET["article"];
-  $article = view_article($id);
-  $comments = $article["comments"] ?? [];
 
-  ?>
+  $article_id = $_GET["article"];
+  $article = view_article($article_id);
+  $comments = list_comments($article_id);
+
+  $session_author = get_connected_author();
+  ?> 
+
   <section>
     <a href="/">
       <button>Retour</button>
@@ -26,12 +31,18 @@
         <p class="description"><?= $article["content"] ?></p>
       </div>
     </article>
+    <a href="/views/comments/form.php?article=<?= $article_id ?>">
+      <button>Ajouter un commentaire</button>
+    </a>
     <aside>
       <?php foreach ($comments as $comment) : ?>
         <div class="comment">
-          <h3><?= $comment['author'] ?></h3>
+          <h3><?= $comment['title'] ?></h3>
           <p><?= $comment['content'] ?></p>
-          <p><?= $comment['date'] ?></p>
+          <p><?= format_sql_date($comment['date']) ?>, <?= $comment['author_name'] ?></p>
+          <? if ($session_author['id'] === $comment['author_id']) : ?>
+            <a href="/actions/comment/delete.php?comment=<?= $comment['id'] ?>&article=<?= $article_id ?>"><button>Supprimer le commentaire</button></a>
+          <?php endif; ?>
         </div>
       <?php endforeach; ?>
     </aside>
