@@ -28,7 +28,8 @@ function get_connected_author()
   return $session_author;
 }
 
-function check_connexion() {
+function check_connexion()
+{
   session_start();
   $session_author = $_SESSION["author"] ?? null;
   if (!$session_author) {

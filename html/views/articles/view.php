@@ -7,11 +7,11 @@
 <body>
   <?php
   include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/article/view.php');
+  include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/comment/list.php');
 
   $id = $_GET["article"];
   $article = view_article($id);
-  $comments = $article["comments"] ?? [];
-
+  $comments = listCommentsPerArticle();
   ?>
   <section>
     <a href="/">
@@ -26,12 +26,22 @@
         <p class="description"><?= $article["content"] ?></p>
       </div>
     </article>
+
     <aside>
+      <h3>Commentaires (<?= count($comments) ?>)</h3>
+      <a href="/views/comments/form.php?article=<?= $article["id"] ?>">
+        <button>Ajouter un commentaire</button>
+      </a>
       <?php foreach ($comments as $comment) : ?>
         <div class="comment">
-          <h3><?= $comment['author'] ?></h3>
+          <div class="comment-header">
+            <h3><?= $comment['author_name'] ?></h3>
+            <p><?= format_sql_date($comment['date']) ?></p>
+          </div>
           <p><?= $comment['content'] ?></p>
-          <p><?= $comment['date'] ?></p>
+          <a href="/actions/comment/delete.php?comment=<?= $comment['id'] ?>&article=<?= $article['id'] ?>">
+            <button>Supprimer</button>
+          </a>
         </div>
       <?php endforeach; ?>
     </aside>

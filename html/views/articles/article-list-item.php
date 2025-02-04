@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php")
+include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php");
 ?>
 
 <a href="/views/articles/view.php?article=<?= $article["id"] ?>">
@@ -12,8 +12,8 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php")
   <div>
     <p><?= $article["author_name"] . ", " . format_sql_date($article["date"]) ?></p>
     <p><?= $article['content'] ?></p>
-    <?php if (isset($article['comments'])): ?>
-      <p><?= "Nombre de commentaires : " . count($article["comments"]) ?></p>
+    <?php if (isset($article['comments_number'])): ?>
+      <p><?= "Nombre de commentaires : " . $article['comments_number'] ?></p>
     <?php endif; ?>
   </div>
 </div>
