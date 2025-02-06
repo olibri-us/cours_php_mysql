@@ -6,11 +6,11 @@
 
 <body>
   <?php
+  require_once 'database/connector.php';
   include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/article/list.php");
   include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php");
-  
-  $author = get_connected_author();
 
+  $author = get_connected_author();
   $articles = list_articles();
   ?>
 
