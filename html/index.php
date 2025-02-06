@@ -32,7 +32,7 @@
         </article>
       <?php endforeach; ?>
     <?php else : ?>
-      <h3>Oops! Aucun article. :)</h3>
+      <h3>Oops! <br>Aucun article 🙄</h3>
     <?php endif; ?>
   </section>
 </body>
