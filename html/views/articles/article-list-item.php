@@ -12,8 +12,20 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php")
   <div>
     <p><?= $article["author_name"] . ", " . format_sql_date($article["date"]) ?></p>
     <p><?= $article['content'] ?></p>
-    <?php if (isset($article['comments'])): ?>
-      <p><?= "Nombre de commentaires : " . count($article["comments"]) ?></p>
+    <?php if (!empty($article['comments']) && is_array($article['comments'])): ?>
+      <p>Nombre de commentaires : <?= count($article["comments"]) ?></p>
+      <ul>
+        <?php foreach ($article['comments'] as $comment): ?>
+          <li>
+            <strong><?= htmlspecialchars($comment["author_name"]) ?> :</strong>
+            <?= htmlspecialchars($comment["content"]) ?>
+          </li>
+        <?php endforeach; ?>
+      </ul>
+    <?php else: ?>
+      <p>Aucun commentaire pour cet article.</p>
     <?php endif; ?>
   </div>
+</div>
+</div>
 </div>

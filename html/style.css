@@ -4,12 +4,13 @@
 }
 
 .content {
-  display: flex;
+  display: flex !important;
   gap: 1rem;
+  flex-direction: column !important;
 }
 
 .description {
-  width: 500px;
+  width: 100px;
 }
 
 article {

@@ -10,6 +10,9 @@ $author = get_connected_author();
 
 $bdd = connect_server('fake_reddit');
 
+// Requête d'ajout de commentaire
+$request = load_script($bdd, "comment/add.sql");
+
 // handle image upload
 $newFileName = handle_img_upload('article_img');
 
