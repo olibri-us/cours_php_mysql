@@ -1,3 +1,8 @@
+<head>
+  <title>Création de compte</title>
+  <link href="../style.css" rel="stylesheet" />
+</head>
+
 <h1>Créer un compte</h1>
 
 <form action="/actions/subscribe.php" method="POST">

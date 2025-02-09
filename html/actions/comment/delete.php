@@ -10,7 +10,7 @@ $article_id = $_GET['article'];
 $request = load_script( $bdd,  "comment/delete.sql");
 
 $result = $request->execute([
-  'id' =>  $comment,
+  'id' =>  $comment_id,
   'article_id' => $article_id]);
 
 header('Location: /views/articles/view.php?article='.$article_id);

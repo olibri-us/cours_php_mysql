@@ -1,1 +1,0 @@
-UPDATE articles SET nb_comments = :nb_comments WHERE id = :id;

@@ -13,6 +13,7 @@ if (!empty($_GET["article"])) {
 ?>
 
 <head>
+  <title>Ajouter un article</title>
   <link href="/style.css" rel="stylesheet" />
 </head>
 

@@ -4,6 +4,11 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/author/list.php");
 $authorList = list_authors();
 ?>
 
+<head>
+  <title>Connexion</title>
+  <link href="../style.css" rel="stylesheet" />
+</head>
+
 
 <h1>Connexion</h1>
 <h3>Qui êtes vous ? </h3>

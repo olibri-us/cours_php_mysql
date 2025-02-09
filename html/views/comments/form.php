@@ -6,6 +6,7 @@ check_connexion();
 ?>
 
 <head>
+  <title>Ajouter un commentaire</title>
   <link href="/style.css" rel="stylesheet" />
 </head>
 

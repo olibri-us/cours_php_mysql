@@ -1,6 +1,7 @@
 <html lang="fr">
 
 <head>
+  <title>Mon article</title>
   <link href="../../style.css" rel="stylesheet" />
 </head>
 
