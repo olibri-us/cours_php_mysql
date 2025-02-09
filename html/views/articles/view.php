@@ -7,10 +7,11 @@
 <body>
   <?php
   include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/article/view.php');
+  include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/comment/list.php');
 
   $id = $_GET["article"];
   $article = view_article($id);
-  $comments = $article["comments"] ?? [];
+  $comments = list_comments_by_article($article['id']) ?? [];
 
   ?>
   <section>
@@ -27,9 +28,10 @@
       </div>
     </article>
     <aside>
+      <? include($_SERVER['DOCUMENT_ROOT'] . '/views/comment/form.php') ?>
       <?php foreach ($comments as $comment) : ?>
         <div class="comment">
-          <h3><?= $comment['author'] ?></h3>
+          <h3><?= $comment['author_name'] ?></h3>
           <p><?= $comment['content'] ?></p>
           <p><?= $comment['date'] ?></p>
         </div>
