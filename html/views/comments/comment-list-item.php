@@ -10,9 +10,9 @@ $authorized = $author['id'] == $comment['author_id'];
   <p><?= $comment['date'] ?></p>
   <? if ($authorized): ?>
     <div class="flex">
-      <form action="/actions/comment/edit.php" class="form">
-        <input type="submit" class="action" value="Modifier" />
-      </form>
+      <a href="/views/comments/edit.php?comment=<?= $comment['id'] ?>">
+        <button class="action">Modifier</button>
+      </a>
       <form action="/actions/comment/delete.php" method="POST" class="form">
         <input name="comment" type="number" class="hidden" value="<?= $comment['id'] ?>" />
         <input name="article" type="number" class="hidden" value="<?= $comment['article_id'] ?>" />

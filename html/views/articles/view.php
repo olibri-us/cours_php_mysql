@@ -28,9 +28,9 @@
       </div>
     </article>
     <aside>
-      <? include($_SERVER['DOCUMENT_ROOT'] . '/views/comment/form.php') ?>
+      <? include($_SERVER['DOCUMENT_ROOT'] . '/views/comments/form.php') ?>
       <?php foreach ($comments as $comment) : ?>
-        <? include($_SERVER['DOCUMENT_ROOT'] . '/views/comment/comment-list-item.php') ?>
+        <? include($_SERVER['DOCUMENT_ROOT'] . '/views/comments/comment-list-item.php') ?>
       <?php endforeach; ?>
     </aside>
   </section>
