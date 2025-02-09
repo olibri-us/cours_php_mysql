@@ -1,6 +1,23 @@
-.image {
-  width: 500px;
-  object-fit: cover;
+img {
+  --c: #fd8129;
+  --b: 2px;
+  --o: 15px;
+
+  width: 400px;
+  --_p: calc(2*var(--o) + var(--b));
+  padding: var(--_p) var(--_p) 0 0;
+  outline: var(--b) solid var(--c);
+  outline-offset: calc(var(--o) - var(--_p));
+  transition: .4s;
+  cursor: pointer;
+}
+
+img+img {
+  padding: var(--_p) 0 0 var(--_p);
+}
+
+img:hover {
+  padding: calc(var(--_p)/2);
 }
 
 .content {
@@ -31,7 +48,7 @@ aside {
 
 article:not(:last-of-type) {
   padding-bottom: 1rem;
-  border-bottom: 5px dotted greenyellow;
+  border-bottom: 5px dotted grey;
 }
 
 .minia {
@@ -39,15 +56,28 @@ article:not(:last-of-type) {
   gap: 2rem;
 }
 
+.card-article {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+  padding: 14px 80px 18px 36px;
+  cursor: pointer;
+}
+
+.card-article:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
 .thumbnail {
   width: 150px;
   border-radius: 10px;
-  border: 10px double skyblue;
 }
 
 .title {
-  font-family: sans-serif;
-  color: palevioletred;
+  font-family: garamond-bold;
+  color: darkslategray;
   font-style: italic;
   text-decoration: underline;
 }
@@ -55,4 +85,12 @@ article:not(:last-of-type) {
 .form {
   display: flex;
   flex-direction: column;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 50px;
+  min-height: 100vh;
+  grid-auto-columns: 300px;
 }

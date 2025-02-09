@@ -8,11 +8,13 @@
   <?php
   include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/article/list.php");
   include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php");
-  
+
   $author = get_connected_author();
 
   $articles = list_articles();
   ?>
+
+  <h1>Bienvenue sur FAKE REDDIT</h1>
 
   <a href="/actions/logout.php" style="float : right">
     <button>Déconnexion</button>
