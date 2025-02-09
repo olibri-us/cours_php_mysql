@@ -14,6 +14,8 @@ $authorized = $author['id'] == $comment['author_id'];
         <input type="submit" class="action" value="Modifier" />
       </form>
       <form action="/actions/comment/delete.php" method="POST" class="form">
+        <input name="comment" type="number" class="hidden" value="<?= $comment['id'] ?>" />
+        <input name="article" type="number" class="hidden" value="<?= $comment['article_id'] ?>" />
         <input type="submit" class="danger" value="Supprimer" />
       </form>
     </div>
