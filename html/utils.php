@@ -5,6 +5,11 @@ function format_sql_date($sql_date)
   return date('d/m/Y', strtotime($sql_date));
 }
 
+function format_sql_date_upgraded($sql_date)
+{
+  return date('d/m/Y H:i', strtotime($sql_date));
+}
+
 function handle_img_upload($uploadedFileName)
 {
   $filePath = $_FILES[$uploadedFileName]['tmp_name'];
@@ -18,17 +23,22 @@ function handle_img_upload($uploadedFileName)
 
 function get_connected_author()
 {
-  session_start();
+  if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+  }
+
   $session_author = $_SESSION["author"] ?? null;
   if (!$session_author) {
-    //Redirection ver l'url de connexion
+    // Redirection vers l'URL de connexion
     header('Location: /views/connexion.php');
-    die;
+    exit;
   }
+
   return $session_author;
 }
 
-function check_connexion() {
+function check_connexion()
+{
   session_start();
   $session_author = $_SESSION["author"] ?? null;
   if (!$session_author) {

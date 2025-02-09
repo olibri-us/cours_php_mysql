@@ -8,7 +8,7 @@
   <?php
   include_once($_SERVER['DOCUMENT_ROOT'] . "/actions/article/list.php");
   include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php");
-  
+
   $author = get_connected_author();
 
   $articles = list_articles();
@@ -19,7 +19,7 @@
   </a>
 
   <aside>
-    <a href="/views/articles/form.php">
+    <a href="/views/articles/article_form.php">
       <button>Ajouter un article</button>
     </a>
   </aside>
@@ -28,7 +28,7 @@
     <?php if ($articles) : ?>
       <?php foreach ($articles as $article): ?>
         <article>
-          <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/articles/article-list-item.php'; ?>
+          <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/articles/article_list_item.php'; ?>
         </article>
       <?php endforeach; ?>
     <?php else : ?>

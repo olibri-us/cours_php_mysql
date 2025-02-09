@@ -7,10 +7,13 @@
 <body>
   <?php
   include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/article/view.php');
+  include_once($_SERVER['DOCUMENT_ROOT'] . '/actions/comment/list.php');
 
   $id = $_GET["article"];
   $article = view_article($id);
-  $comments = $article["comments"] ?? [];
+  $comments = list_comments($id) ?? [];
+
+  $action = "/actions/comment/add.php";
 
   ?>
   <section>
@@ -25,16 +28,17 @@
         <img src="<?= $article["img"] ?>" alt="chat" class="image">
         <p class="description"><?= $article["content"] ?></p>
       </div>
+      <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/articles/comment_form.php'; ?>
+      <?php if ($comments) : ?>
+        <aside>
+          <?php foreach ($comments as $comment) : ?>
+            <?php include $_SERVER['DOCUMENT_ROOT'] . '/views/articles/comment_list_item.php'; ?>
+          <?php endforeach; ?>
+        </aside>
+      <?php else : ?>
+        <h3>Aucun commentaire, soyez le premier à commenter !</h3>
+      <?php endif; ?>
     </article>
-    <aside>
-      <?php foreach ($comments as $comment) : ?>
-        <div class="comment">
-          <h3><?= $comment['author'] ?></h3>
-          <p><?= $comment['content'] ?></p>
-          <p><?= $comment['date'] ?></p>
-        </div>
-      <?php endforeach; ?>
-    </aside>
   </section>
 </body>
 
