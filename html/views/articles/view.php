@@ -37,14 +37,16 @@
     </a>
 
     <article>
-      <h1 class="title"><?= $article["title"] ?></h1>
       <div class="content">
-        <img src="<?= $article["img"] ?>" alt="chat" class="image">
+        <img src="<?= $article["img"] ?>" alt="chat" class="image" />
         <div class="article-content">
+          <h1 class="title"><?= $article["title"] ?></h1>
           <p class="description"><?= $article["content"] ?></p>
-          <span>Publié le: <time><?= format_sql_date($article["date"]) ?></time></span>
-          <span>par <strong><?= $article["author_name"] ?></strong></span>
-          <p><?php echo $commentsCount; ?> Commentaire(s)</p>
+          <div class="article-footer">
+            <span>Publié le: <time><?= format_sql_date($article["date"]) ?></time></span>
+            <span>par <strong><?= $article["author_name"] ?></strong></span>
+            <p><?php echo $commentsCount; ?> Commentaire(s)</p>
+          </div>
         </div>
       </div>
     </article>
@@ -59,10 +61,10 @@
     </div>
 
 
-    <aside>
+    <div class="comments-container">
       <h2>Commentaires</h2>
       <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/views/comment/list.php'; ?>
-    </aside>
+    </div id="comments-container">>
   </section>
 </body>
 

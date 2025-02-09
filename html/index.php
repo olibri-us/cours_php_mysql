@@ -1,7 +1,7 @@
 <html lang="fr">
 
 <head>
-  <link href="style.css" rel="stylesheet" />
+  <link href="./style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -14,15 +14,15 @@
   $articles = list_articles();
   ?>
 
+
+<aside>
   <a href="/actions/logout.php" style="float : right">
     <button>Déconnexion</button>
   </a>
-
-  <aside>
-    <a href="/views/articles/form.php">
-      <button>Ajouter un article</button>
-    </a>
-  </aside>
+  <a href="/views/articles/form.php">
+    <button>Ajouter un article</button>
+  </a>
+</aside>
 
   <section>
     <?php if ($articles) : ?>
