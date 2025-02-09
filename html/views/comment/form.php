@@ -15,8 +15,7 @@ if (!empty($_GET["comment"])) {
 ?>
 
 <form action=<?= $action ?> method="POST" class="form" enctype="multipart/form-data">
-  <h3>Ajouter un article </h3>
-  <label for="content"> Contenu</label>
+  <h3>Ajouter un commentaire</h3>
   <textarea name="content" required><?= $comment['content'] ?? '' ?></textarea>
   <? if ($article): ?>
     <input name="article" type="number" class="hidden" value="<?= $article['id'] ?>" />
