@@ -7,7 +7,7 @@ $authorized = $author['id'] == $comment['author_id'];
 <div class="comment">
   <h3><?= $comment['author_name'] ?></h3>
   <p><?= $comment['content'] ?></p>
-  <p><?= $comment['date'] ?></p>
+  <p><?= format_sql_date($comment['date']) ?></p>
   <? if ($authorized): ?>
     <div class="flex">
       <a href="/views/comments/edit.php?comment=<?= $comment['id'] ?>">
