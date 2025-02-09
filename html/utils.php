@@ -18,7 +18,7 @@ function handle_img_upload($uploadedFileName)
 
 function get_connected_author()
 {
-  session_start();
+  if(session_status() !== PHP_SESSION_ACTIVE) session_start();
   $session_author = $_SESSION["author"] ?? null;
   if (!$session_author) {
     //Redirection ver l'url de connexion

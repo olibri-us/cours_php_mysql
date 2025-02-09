@@ -30,11 +30,7 @@
     <aside>
       <? include($_SERVER['DOCUMENT_ROOT'] . '/views/comment/form.php') ?>
       <?php foreach ($comments as $comment) : ?>
-        <div class="comment">
-          <h3><?= $comment['author_name'] ?></h3>
-          <p><?= $comment['content'] ?></p>
-          <p><?= $comment['date'] ?></p>
-        </div>
+        <? include($_SERVER['DOCUMENT_ROOT'] . '/views/comment/comment-list-item.php') ?>
       <?php endforeach; ?>
     </aside>
   </section>

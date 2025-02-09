@@ -14,7 +14,7 @@ if (!empty($_GET["comment"])) {
 }
 ?>
 
-<form action=<?= $action ?> method="POST" class="form" enctype="multipart/form-data">
+<form action=<?= $action ?> method="POST" class="form">
   <h3>Ajouter un commentaire</h3>
   <textarea name="content" required><?= $comment['content'] ?? '' ?></textarea>
   <? if ($article): ?>

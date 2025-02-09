@@ -1,0 +1,21 @@
+<?php
+include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php");
+$author = get_connected_author();
+$authorized = $author['id'] == $comment['author_id'];
+?>
+
+<div class="comment">
+  <h3><?= $comment['author_name'] ?></h3>
+  <p><?= $comment['content'] ?></p>
+  <p><?= $comment['date'] ?></p>
+  <? if ($authorized): ?>
+    <div class="flex">
+      <form action="/actions/comment/edit.php" class="form">
+        <input type="submit" class="action" value="Modifier" />
+      </form>
+      <form action="/actions/comment/delete.php" method="POST" class="form">
+        <input type="submit" class="danger" value="Supprimer" />
+      </form>
+    </div>
+  <? endif; ?>
+</div>

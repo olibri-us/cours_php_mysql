@@ -60,3 +60,26 @@ article:not(:last-of-type) {
   display: flex;
   flex-direction: column;
 }
+
+.flex {
+  display: flex;
+  column-gap: 1rem;
+}
+
+button, input[type="submit"] {
+  font-weight: bold;
+  border: 1px solid slategrey;
+  border-radius: .25rem;
+  padding: .5rem 1rem;
+  cursor: pointer;
+}
+
+.action {
+  color: white;
+  background-color: cornflowerblue;
+}
+
+.danger {
+  color: white;
+  background-color: crimson;
+}
