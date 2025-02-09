@@ -12,7 +12,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/utils.php")
   <div>
     <p><?= $article["author_name"] . ", " . format_sql_date($article["date"]) ?></p>
     <p><?= $article['content'] ?></p>
-    <?php if (isset($article['comments'])): ?>
+    <?php if ($article['comments']): ?>
       <p><?= "Nombre de commentaires : " . $article["comments"] ?></p>
     <?php endif; ?>
   </div>
