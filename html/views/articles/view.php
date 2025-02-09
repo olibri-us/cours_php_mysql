@@ -38,9 +38,9 @@
 
     <article>
       <div class="content">
+        <h1 class="title"><?= $article["title"] ?></h1>
         <img src="<?= $article["img"] ?>" alt="chat" class="image" />
         <div class="article-content">
-          <h1 class="title"><?= $article["title"] ?></h1>
           <p class="description"><?= $article["content"] ?></p>
           <div class="article-footer">
             <span>Publié le: <time><?= format_sql_date($article["date"]) ?></time></span>

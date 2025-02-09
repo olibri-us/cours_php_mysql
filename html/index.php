@@ -14,15 +14,18 @@
   $articles = list_articles();
   ?>
 
+  <header>
+    <h1>Bienvenue <?= $author['name'] ?></h1>
+  </header>
 
-<aside>
+<nav id="navbar">
   <a href="/actions/logout.php" style="float : right">
     <button>Déconnexion</button>
   </a>
   <a href="/views/articles/form.php">
     <button>Ajouter un article</button>
   </a>
-</aside>
+</nav>
 
   <section>
     <?php if ($articles) : ?>
